@@ -7,7 +7,7 @@ temp_model = joblib.load('Src/temp_model.pkl')
 
 st.title("🌦️ Weather Prediction App")
 
-uploaded_file = st.file_uploader("..\Data\sylhet_weather.csv", type=['csv'])
+uploaded_file = st.file_uploader("\Data\sylhet_weather.csv", type=['csv'])
 
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
