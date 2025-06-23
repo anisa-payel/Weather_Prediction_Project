@@ -4,6 +4,7 @@ import joblib
 
 cond_model = joblib.load('Src/cond_model.pkl')
 temp_model = joblib.load('Src/temp_model.pkl')
+le_model = joblib.load('Src/label_encoder.pkl')
 
 st.title("🌦️ Weather Prediction App")
 
@@ -16,8 +17,9 @@ if uploaded_file:
     features = df[['tempmax', 'tempmin', 'humidity', 'cloudcover',
               'temp', 'feelslike', 'dew', 'precip', 'precipprob', 'precipcover', 'preciptype', 'snow', 'snowdepth', 'windgust', 'windspeed',
               'winddir', 'sealevelpressure', 'visibility', 'solarradiation', 'solarenergy', 'uvindex',
-              'moonphase', 'conditions','icon', 'categoryofweather']]  # example
-    predictions = temp_model.predict(features)
+              'moonphase', 'conditions','icon', 'categoryofweather']]  
+    p_feature = le_model(feature)          
+    predictions = temp_model.predict(p_features)
 
     try:
         predictions = label_encoder.inverse_transform(predictions)
