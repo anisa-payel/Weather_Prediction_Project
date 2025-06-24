@@ -43,9 +43,9 @@ if predict:
             'humidity': humidity,
             'conditions': conditions
     }
+    return features
 
     features =  pd.DataFrame(data, index=[0])
-    return features
 
 df = user_input_features
 predictions1 = temp_model.predict(df)
