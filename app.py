@@ -48,10 +48,14 @@ if predict:
     return features
 
 df = user_input_features
-predictions = temp_model.predict(df)
+predictions1 = temp_model.predict(df)
+predictions2 = cond_model.predict(df)
 
-df['Prediction'] = predictions
-st.subheader("Predictions")
+
+df['Prediction1'] = predictions1
+df['Prediction2'] = predictions1
+st.subheader("Predictions1")
+st.subheader("Predictions2")
 st.write(data)
 
 
