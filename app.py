@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import joblib
 
 cond_model = joblib.load('Src/cond_model.pkl')
@@ -7,8 +8,9 @@ temp_model = joblib.load('Src/temp_model.pkl')
 le_model = joblib.load('Src/label_encoder.pkl')
 
 st.title("🌦️ Weather Prediction App")
+st.header("Predict Weather!!")
 
-st.write("*/We,ve made a weather predicting app which using Deep Learning/*")
+st.write("We,ve made a weather predicting app which using Deep Learning/*")
 
 st.sidebar.header("Write the inputs")
 
@@ -45,7 +47,7 @@ return features
 
 df = user_input_features
 
-st.subheader
+*/ st.subheader
 
 uploaded_file = st.file_uploader("Upload a CSV file", type=['csv'])
 
@@ -62,8 +64,6 @@ if uploaded_file:
 
     try:
         predictions = label_encoder.inverse_transform(predictions)
-    except:
-        pass
 
     df['Prediction'] = predictions
     st.subheader("Predictions")
