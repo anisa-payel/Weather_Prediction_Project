@@ -46,25 +46,31 @@ def user_input_features():
 return features
 
 df = user_input_features
+predictions = temp_model.predict(df)
 
-*/ st.subheader
+df['Prediction'] = predictions
+st.subheader("Predictions")
+st.write(data)
 
-uploaded_file = st.file_uploader("Upload a CSV file", type=['csv'])
+
+# st.subheader
+
+# uploaded_file = st.file_uploader("Upload a CSV file", type=['csv'])
 
 
-if uploaded_file:
-    df = pd.read_csv(uploaded_file)
-    st.write("Data Preview:", df.head())
+# if uploaded_file:
+#     df = pd.read_csv(uploaded_file)
+#     st.write("Data Preview:", df.head())
 
-    df_cleaned, _ = clean_weather_data(df, label_encoders, fit_encoders=False)
+#     df_cleaned, _ = clean_weather_data(df, label_encoders, fit_encoders=False)
 
-    features = df_cleaned[['temp', 'feelslike', 'dew','feelslikemax','feelslikemin', 'tempmin', 'tempmax','precipprob','cloudcover','precipcover', 'humidity','conditions']]  
-    p_feature = le_model(feature)          
-    predictions = temp_model.predict(p_features)
+#     features = df_cleaned[['temp', 'feelslike', 'dew','feelslikemax','feelslikemin', 'tempmin', 'tempmax','precipprob','cloudcover','precipcover', 'humidity','conditions']]  
+#     p_feature = le_model(feature)          
+#     predictions = temp_model.predict(p_features)
 
-    try:
-        predictions = label_encoder.inverse_transform(predictions)
+#     try:
+#         predictions = label_encoder.inverse_transform(predictions)
 
-    df['Prediction'] = predictions
-    st.subheader("Predictions")
-    st.write(data)
+#     df['Prediction'] = predictions
+#     st.subheader("Predictions")
+#     st.write(data)
